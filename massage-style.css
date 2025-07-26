@@ -632,6 +632,23 @@ body {
     .container {
         padding: 0 1rem;
     }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .conditions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .safety-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .area-section p {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -657,12 +674,205 @@ body {
     }
 }
 
+/* サービス情報セクション */
+.service-info {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f0fff4 0%, #f7fafc 100%);
+}
+
+.service-info h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2c5282;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.info-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-left: 5px solid #48bb78;
+}
+
+.info-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #2c5282;
+    text-align: center;
+}
+
+.area-section {
+    margin-bottom: 2rem;
+}
+
+.area-section h4 {
+    color: #48bb78;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.area-section p {
+    line-height: 1.8;
+    color: #4a5568;
+}
+
+.conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.condition-category h4 {
+    color: #48bb78;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #48bb78;
+    padding-bottom: 0.5rem;
+}
+
+.condition-category ul {
+    list-style: none;
+}
+
+.condition-category li {
+    padding: 0.3rem 0;
+    position: relative;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.condition-category li:before {
+    content: "•";
+    color: #48bb78;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.symptoms-section {
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.symptoms-section h4 {
+    color: #2c5282;
+    margin-bottom: 1rem;
+}
+
+.symptoms-section p {
+    line-height: 1.7;
+    color: #4a5568;
+}
+
+.safety-measures {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 2px solid #48bb78;
+}
+
+.safety-measures h3 {
+    text-align: center;
+    color: #2c5282;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.safety-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f0fff4;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.safety-item:hover {
+    transform: translateY(-3px);
+}
+
+.safety-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.safety-item p {
+    font-weight: 600;
+    color: #2c5282;
+}
+
+/* 無料体験強調スタイル */
+.hero h2 {
+    animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 10px rgba(255,215,0,0.5); }
+    100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,215,0,0.8), 0 0 30px rgba(255,215,0,0.6); }
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd700 0%, #ff6b35 100%);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover:before {
+    left: 100%;
+}
+
 /* アクセシビリティ */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+    
+    .hero h2 {
+        animation: none;
+    }
+    
+    .btn-primary {
+        animation: none;
     }
 }
 
